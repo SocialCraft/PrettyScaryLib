@@ -1,0 +1,6 @@
+name: PrettyScaryLib
+main: com.stirante.PrettyScaryLib.PrettyScaryLib
+author: stirante
+version: 1.0
+
+commands:
