@@ -52,7 +52,7 @@ public class Armor {
 	 * @param item the item to check
 	 * @return true, if is applicable
 	 */
-	private static boolean isApplicable(ItemStack item) {
+	public static boolean isApplicable(ItemStack item) {
 		switch (item.getType()) {
 			case LEATHER_BOOTS:
 			case LEATHER_CHESTPLATE:
