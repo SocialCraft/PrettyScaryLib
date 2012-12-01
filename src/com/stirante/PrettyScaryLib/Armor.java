@@ -18,7 +18,6 @@ public class Armor {
 	 * @param item item to color
 	 * @param color color
 	 * @return colored item
-	 * @throws Exception thrown,  when item is not applicable
 	 */
 	public static ItemStack setColor(ItemStack item, int color) {
 		if (!isApplicable(item))
@@ -70,7 +69,6 @@ public class Armor {
 	 * @param item item to color
 	 * @param color color
 	 * @return colored item
-	 * @throws Exception thrown,  when item is not applicable
 	 */
 	public static ItemStack setColor(ItemStack item, Color color) {
 		if (!isApplicable(item))

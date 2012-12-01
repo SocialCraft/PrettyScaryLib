@@ -123,7 +123,7 @@ public class CustomPotions {
 	 * @param item the item
 	 * @return true, if is applicable
 	 */
-	private static boolean isApplicable(ItemStack item) {
+	public static boolean isApplicable(ItemStack item) {
 		switch (item.getType()) {
 			case POTION:
 				return true;

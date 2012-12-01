@@ -205,7 +205,7 @@ public class BeaconHelper {
 	 * @param block the block
 	 * @return true, if is applicable
 	 */
-	private static boolean isApplicable(Block block) {
+	public static boolean isApplicable(Block block) {
 		switch (block.getType()) {
 			case BEACON:
 				return true;

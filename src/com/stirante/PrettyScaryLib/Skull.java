@@ -72,7 +72,7 @@ public class Skull {
 	 * @param item item
 	 * @return true, if is applicable
 	 */
-	private static boolean isApplicable(ItemStack item) {
+	public static boolean isApplicable(ItemStack item) {
 		switch (item.getType()) {
 			case SKULL_ITEM:
 				return true;

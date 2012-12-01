@@ -192,7 +192,7 @@ public class EntityEquipment {
 	 * @param entity entity
 	 * @return true, if is applicable
 	 */
-	private static boolean isApplicable(LivingEntity entity) {
+	public static boolean isApplicable(LivingEntity entity) {
 		switch (entity.getType()) {
 			case ZOMBIE:
 			case SKELETON:
