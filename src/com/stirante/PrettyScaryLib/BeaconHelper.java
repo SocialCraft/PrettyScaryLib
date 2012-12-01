@@ -49,7 +49,7 @@ public class BeaconHelper {
 	 * Activates and deactivates the beacon.
 	 *
 	 * @param block beacon
-	 * @param active active
+	 * @param state state
 	 */
 	public static void setActive(Block block, boolean state) {
 		if (!isApplicable(block))
