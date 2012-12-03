@@ -1,7 +1,5 @@
 package com.stirante.PrettyScaryLib;
 
-import java.awt.Color;
-
 import net.minecraft.server.EntityWolf;
 
 import org.bukkit.DyeColor;
@@ -33,19 +31,6 @@ public class WolfCollar {
 	 * @param color color
 	 * @return wolf
 	 */
-	public static Wolf setColor(Wolf wolf, Color color){
-		EntityWolf ent = (EntityWolf) ((CraftLivingEntity)wolf).getHandle();
-		ent.setCollarColor(color.getRGB());
-		return wolf;
-	}
-	
-	/**
-	 * Sets color.
-	 *
-	 * @param wolf wolf
-	 * @param color color
-	 * @return wolf
-	 */
 	public static Wolf setColor(Wolf wolf, DyeColor color){
 		EntityWolf ent = (EntityWolf) ((CraftLivingEntity)wolf).getHandle();
 		ent.setCollarColor(color.getData());
@@ -61,22 +46,6 @@ public class WolfCollar {
 	 */
 	public static Wolf setColor(Wolf wolf, String colorStr){
 		int color = Integer.decode(colorStr);
-		EntityWolf ent = (EntityWolf) ((CraftLivingEntity)wolf).getHandle();
-		ent.setCollarColor(color);
-		return wolf;
-	}
-	
-	/**
-	 * Sets color.
-	 *
-	 * @param wolf wolf
-	 * @param colorR amount of red
-	 * @param colorG amount of green
-	 * @param colorB amount of blue
-	 * @return wolf
-	 */
-	public static Wolf setColor(Wolf wolf, int colorR, int colorG, int colorB){
-		int color = Integer.decode(ColorConverter.toHex(colorR, colorG, colorB));
 		EntityWolf ent = (EntityWolf) ((CraftLivingEntity)wolf).getHandle();
 		ent.setCollarColor(color);
 		return wolf;

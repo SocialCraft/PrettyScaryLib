@@ -48,13 +48,7 @@ public class EntityEquipment {
 	 * @param item item
 	 */
 	public static void setWeapon(LivingEntity mob, ItemStack item) {
-		if (!isApplicable(mob))
-			return ;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		if (!(item instanceof CraftItemStack))
-			item = new CraftItemStack(item.getType());
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
-		ent.setEquipment(0, itemStack);
+		setEquipment(mob, item, 0);
 	}
 	
 	/**
@@ -64,10 +58,7 @@ public class EntityEquipment {
 	 * @return weapon
 	 */
 	public static ItemStack getWeapon(LivingEntity mob) {
-		if (!isApplicable(mob))
-			return null;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		return new CraftItemStack(ent.getEquipment(0));
+		return getEquipment(mob, 0);
 	}
 	
 	/**
@@ -77,13 +68,7 @@ public class EntityEquipment {
 	 * @param item item
 	 */
 	public static void setHelmet(LivingEntity mob, ItemStack item) {
-		if (!isApplicable(mob))
-			return ;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		if (!(item instanceof CraftItemStack))
-			item = new CraftItemStack(item.getType());
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
-		ent.setEquipment(1, itemStack);
+		setEquipment(mob, item, 1);
 	}
 	
 	/**
@@ -93,10 +78,7 @@ public class EntityEquipment {
 	 * @return helmet
 	 */
 	public static ItemStack getHelmet(LivingEntity mob) {
-		if (!isApplicable(mob))
-			return null;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		return new CraftItemStack(ent.getEquipment(1));
+		return getEquipment(mob, 1);
 	}
 	
 	/**
@@ -106,13 +88,7 @@ public class EntityEquipment {
 	 * @param item item
 	 */
 	public static void setChestplate(LivingEntity mob, ItemStack item) {
-		if (!isApplicable(mob))
-			return ;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		if (!(item instanceof CraftItemStack))
-			item = new CraftItemStack(item.getType());
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
-		ent.setEquipment(2, itemStack);
+		setEquipment(mob, item, 2);
 	}
 	
 	/**
@@ -122,10 +98,7 @@ public class EntityEquipment {
 	 * @return chestplate
 	 */
 	public static ItemStack getChestplate(LivingEntity mob) {
-		if (!isApplicable(mob))
-			return null;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		return new CraftItemStack(ent.getEquipment(2));
+		return getEquipment(mob, 2);
 	}
 	
 	/**
@@ -135,13 +108,7 @@ public class EntityEquipment {
 	 * @param item item
 	 */
 	public static void setPants(LivingEntity mob, ItemStack item) {
-		if (!isApplicable(mob))
-			return ;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		if (!(item instanceof CraftItemStack))
-			item = new CraftItemStack(item.getType());
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
-		ent.setEquipment(3, itemStack);
+		setEquipment(mob, item, 3);
 	}
 	
 	/**
@@ -151,10 +118,7 @@ public class EntityEquipment {
 	 * @return pants
 	 */
 	public static ItemStack getPants(LivingEntity mob) {
-		if (!isApplicable(mob))
-			return null;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		return new CraftItemStack(ent.getEquipment(3));
+		return getEquipment(mob, 3);
 	}
 	
 	/**
@@ -164,13 +128,7 @@ public class EntityEquipment {
 	 * @param item item
 	 */
 	public static void setBoots(LivingEntity mob, ItemStack item) {
-		if (!isApplicable(mob))
-			return ;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		if (!(item instanceof CraftItemStack))
-			item = new CraftItemStack(item.getType());
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
-		ent.setEquipment(4, itemStack);
+		setEquipment(mob, item, 4);
 	}
 	
 	/**
@@ -180,10 +138,7 @@ public class EntityEquipment {
 	 * @return boots
 	 */
 	public static ItemStack getBoots(LivingEntity mob) {
-		if (!isApplicable(mob))
-			return null;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		return new CraftItemStack(ent.getEquipment(4));
+		return getEquipment(mob, 4);
 	}
 	
 	/**

@@ -71,29 +71,7 @@ public class Armor {
 	 * @return colored item
 	 */
 	public static ItemStack setColor(ItemStack item, Color color) {
-		if (!isApplicable(item))
-			return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
-		NBTTagCompound tag = itemStack.tag;
-		if (tag == null) {
-			tag = new NBTTagCompound();
-			tag.setCompound("display", new NBTTagCompound());
-			itemStack.tag = tag;
-		}
-		
-		tag = itemStack.tag.getCompound("display");
-		tag.setInt("color", color.getRGB());
-		itemStack.tag.setCompound("display", tag);
-		return craftStack;
+		return setColor(item, color.getRGB());
 	}
 
 	/**
@@ -104,29 +82,7 @@ public class Armor {
 	 * @return colored item
 	 */
 	public static ItemStack setColor(ItemStack item, ArmorColor color) {
-		if (!isApplicable(item))
-			return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
-		NBTTagCompound tag = itemStack.tag;
-		if (tag == null) {
-			tag = new NBTTagCompound();
-			tag.setCompound("display", new NBTTagCompound());
-			itemStack.tag = tag;
-		}
-		
-		tag = itemStack.tag.getCompound("display");
-		tag.setInt("color", color.getColor());
-		itemStack.tag.setCompound("display", tag);
-		return craftStack;
+		return setColor(item, color.getColor());
 	}
 
 	/**
@@ -137,30 +93,8 @@ public class Armor {
 	 * @return colored item
 	 */
 	public static ItemStack setColor(ItemStack item, String colorStr) {
-		if (!isApplicable(item))
-			return null;
 		int color = Integer.decode(colorStr);
-		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
-		NBTTagCompound tag = itemStack.tag;
-		if (tag == null) {
-			tag = new NBTTagCompound();
-			tag.setCompound("display", new NBTTagCompound());
-			itemStack.tag = tag;
-		}
-		
-		tag = itemStack.tag.getCompound("display");
-		tag.setInt("color", color);
-		itemStack.tag.setCompound("display", tag);
-		return craftStack;
+		return setColor(item, color);
 	}
 	
 	/**
@@ -173,30 +107,8 @@ public class Armor {
 	 * @return colored item
 	 */
 	public static ItemStack setColor(ItemStack item, int colorR, int colorG, int colorB) {
-		if (!isApplicable(item))
-			return null;
 		int color = Integer.decode(ColorConverter.toHex(colorR, colorG, colorB));
-		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
-		NBTTagCompound tag = itemStack.tag;
-		if (tag == null) {
-			tag = new NBTTagCompound();
-			tag.setCompound("display", new NBTTagCompound());
-			itemStack.tag = tag;
-		}
-		
-		tag = itemStack.tag.getCompound("display");
-		tag.setInt("color", color);
-		itemStack.tag.setCompound("display", tag);
-		return craftStack;
+		return setColor(item, color);
 	}
 	
 	/**
