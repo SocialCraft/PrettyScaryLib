@@ -31,22 +31,13 @@ public class Namer {
 	public static ItemStack setName(ItemStack item, String name) {
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
-			Namer.itemStack = craftStack.getHandle();
+			itemStack = craftStack.getHandle();
 		}
 		else if (item instanceof ItemStack) {
 			craftStack = new CraftItemStack(item);
-			Namer.itemStack = craftStack.getHandle();
+			itemStack = craftStack.getHandle();
 		}
-		NBTTagCompound tag = itemStack.tag;
-		if (tag == null) {
-			tag = new NBTTagCompound();
-			tag.setCompound("display", new NBTTagCompound());
-			itemStack.tag = tag;
-		}
-		
-		tag = itemStack.tag.getCompound("display");
-		tag.setString("Name", ChatColor.RESET + name);
-		itemStack.tag.setCompound("display", tag);
+		itemStack.c(ChatColor.RESET + name);
 		return craftStack;
 	}
 	
@@ -65,12 +56,7 @@ public class Namer {
 			craftStack = new CraftItemStack(item);
 			Namer.itemStack = craftStack.getHandle();
 		}
-		NBTTagCompound tag = itemStack.tag;
-		if (tag == null) {
-			return null;
-		}
-		tag = itemStack.tag.getCompound("display");
-		return tag.getString("Name");
+		return itemStack.r();
 	}
 	
 	/**
