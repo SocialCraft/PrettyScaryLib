@@ -22,6 +22,11 @@ public class EntityEquipment {
 	public static void setEquipment(LivingEntity mob, ItemStack item, int slot) {
 		if (!isApplicable(mob))
 			return ;
+		if (item instanceof CraftItemStack) {
+		}
+		else if (item instanceof ItemStack) {
+			item = new CraftItemStack(item);
+		}
 		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
 		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
 		ent.setEquipment(slot, itemStack);

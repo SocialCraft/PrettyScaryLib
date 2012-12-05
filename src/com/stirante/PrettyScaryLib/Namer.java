@@ -1,7 +1,5 @@
 package com.stirante.PrettyScaryLib;
 
-import java.util.ArrayList;
-
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTagString;
@@ -147,11 +145,9 @@ public class Namer {
 		}
 		tag = itemStack.tag;
 		NBTTagList list = tag.getCompound("display").getList("Lore");
-		ArrayList<String> strings = new ArrayList<String>();
-		String[] lores = new String[] {};
-		for (int i = 0; i < strings.size(); i++)
-			strings.add(((NBTTagString) list.get(i)).data);
-		strings.toArray(lores);
+		String[] lores = new String[list.size()];
+		for (int i = 0; i < list.size(); i++)
+			lores[i] = ((NBTTagString) list.get(i)).data;
 		return lores;
 	}
 }

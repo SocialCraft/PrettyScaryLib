@@ -17,10 +17,10 @@ public class Armor {
 	 *
 	 * @param item item to color
 	 * @param color color
-	 * @return colored item
+	 * @return colored item or null if item is not applicable or color is not valid
 	 */
 	public static ItemStack setColor(ItemStack item, int color) {
-		if (!isApplicable(item))
+		if (!isApplicable(item) || !isValidColor(color))
 			return null;
 		CraftItemStack craftStack = null;
 		net.minecraft.server.ItemStack itemStack = null;
@@ -44,7 +44,17 @@ public class Armor {
 		itemStack.tag.setCompound("display", tag);
 		return craftStack;
 	}
-	
+
+	/**
+	 * Checks if color is valid.
+	 *
+	 * @param color color to check
+	 * @return true, if is valid
+	 */
+	public static boolean isValidColor(int color) {
+		return color <= 0xFFFFFF;
+	}
+
 	/**
 	 * Checks if item is applicable.
 	 *
