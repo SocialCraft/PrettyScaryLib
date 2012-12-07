@@ -102,7 +102,7 @@ public class Firework {
 	 * Gets explosions.
 	 *
 	 * @param item item
-	 * @return lore
+	 * @return explosions
 	 */
 	public static FireworkExplosion[] getExplosions(ItemStack item) {
 		if (!isApplicable(item))
