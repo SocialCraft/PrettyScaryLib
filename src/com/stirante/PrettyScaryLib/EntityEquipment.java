@@ -156,6 +156,7 @@ public class EntityEquipment {
 		switch (entity.getType()) {
 			case ZOMBIE:
 			case SKELETON:
+			case PIG_ZOMBIE:
 				return true;
 			default:
 				return false;
