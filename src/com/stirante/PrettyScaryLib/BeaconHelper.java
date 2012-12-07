@@ -17,14 +17,17 @@ public class BeaconHelper {
 	
 	/**
 	 * Sets the level.
-	 *
-	 * @param block beacon
-	 * @param level level
+	 * 
+	 * @param block
+	 *            beacon
+	 * @param level
+	 *            level
 	 */
 	public static void setLevel(Block block, int level) {
-		if (!isApplicable(block))
-			return ;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		Field lvl = null;
 		try {
 			lvl = TileEntityBeacon.class.getDeclaredField("e");
@@ -47,14 +50,17 @@ public class BeaconHelper {
 	
 	/**
 	 * Activates and deactivates the beacon.
-	 *
-	 * @param block beacon
-	 * @param state state
+	 * 
+	 * @param block
+	 *            beacon
+	 * @param state
+	 *            state
 	 */
 	public static void setActive(Block block, boolean state) {
-		if (!isApplicable(block))
-			return ;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		Field active = null;
 		try {
 			active = TileEntityBeacon.class.getDeclaredField("d");
@@ -77,14 +83,16 @@ public class BeaconHelper {
 	
 	/**
 	 * Checks if beacon is active.
-	 *
-	 * @param block beacon
+	 * 
+	 * @param block
+	 *            beacon
 	 * @return true if active
 	 */
 	public static boolean isActive(Block block) {
-		if (!isApplicable(block))
-			return false;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return false;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		Field active = null;
 		try {
 			active = TileEntityBeacon.class.getDeclaredField("e");
@@ -108,101 +116,119 @@ public class BeaconHelper {
 	
 	/**
 	 * Sets the item in beacon.
-	 *
-	 * @param block beacon
-	 * @param item item
+	 * 
+	 * @param block
+	 *            beacon
+	 * @param item
+	 *            item
 	 */
 	public static void setItemStack(Block block, ItemStack item) {
-		if (!isApplicable(block))
-			return ;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		if (!(item instanceof CraftItemStack))
 			item = new CraftItemStack(item.getType());
-		beacon.setItem(0, ((CraftItemStack)item).getHandle());
+		beacon.setItem(0, ((CraftItemStack) item).getHandle());
 	}
 	
 	/**
 	 * Gets the item.
-	 *
-	 * @param block beacon
+	 * 
+	 * @param block
+	 *            beacon
 	 * @return item
 	 */
 	public static ItemStack getItemStack(Block block) {
-		if (!isApplicable(block))
-			return null;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
-		return new CraftItemStack((net.minecraft.server.ItemStack) beacon.getItem(0));
+		if (!isApplicable(block)) return null;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
+		return new CraftItemStack(beacon.getItem(0));
 	}
 	
 	/**
 	 * Gets the level.
-	 *
-	 * @param block beacon
+	 * 
+	 * @param block
+	 *            beacon
 	 * @return level
 	 */
 	public static int getLevel(Block block) {
-		if (!isApplicable(block))
-			return -1;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return -1;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		return beacon.k();
 	}
 	
 	/**
 	 * Sets the primary effect.
-	 *
-	 * @param block beacon
-	 * @param effect PotionEffectType to apply
+	 * 
+	 * @param block
+	 *            beacon
+	 * @param effect
+	 *            PotionEffectType to apply
 	 */
 	public static void setPrimaryEffect(Block block, PotionEffectType effect) {
-		if (!isApplicable(block))
-			return ;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		beacon.d(effect.getId());
 	}
 	
 	/**
 	 * Gets the primary effect.
-	 *
-	 * @param block beacon
+	 * 
+	 * @param block
+	 *            beacon
 	 * @return effect
 	 */
 	public static PotionEffectType getPrimaryEffect(Block block) {
-		if (!isApplicable(block))
-			return null;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return null;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		return PotionEffectType.getById(beacon.i());
 	}
 	
 	/**
 	 * Sets the secondary effect.
-	 *
-	 * @param block beacon
-	 * @param effect PotionEffectType to apply
+	 * 
+	 * @param block
+	 *            beacon
+	 * @param effect
+	 *            PotionEffectType to apply
 	 */
 	public static void setSecondaryEffect(Block block, PotionEffectType effect) {
-		if (!isApplicable(block))
-			return ;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		beacon.e(effect.getId());
 	}
 	
 	/**
 	 * Gets the secondary effect.
-	 *
-	 * @param block beacon
+	 * 
+	 * @param block
+	 *            beacon
 	 * @return effect
 	 */
 	public static PotionEffectType getSecondaryEffect(Block block) {
-		if (!isApplicable(block))
-			return null;
-		TileEntityBeacon beacon = (TileEntityBeacon)((CraftWorld)block.getWorld()).getHandle().getTileEntity(block.getX(), block.getY(), block.getZ());
+		if (!isApplicable(block)) return null;
+		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
+				.getWorld()).getHandle().getTileEntity(block.getX(),
+				block.getY(), block.getZ());
 		return PotionEffectType.getById(beacon.j());
 	}
 	
 	/**
 	 * Checks if is applicable.
-	 *
-	 * @param block the block
+	 * 
+	 * @param block
+	 *            the block
 	 * @return true, if is applicable
 	 */
 	public static boolean isApplicable(Block block) {

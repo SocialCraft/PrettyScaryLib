@@ -14,43 +14,47 @@ public class EntityEquipment {
 	
 	/**
 	 * Sets equipment.
-	 *
-	 * @param mob mob
-	 * @param item item
-	 * @param slot slot
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param item
+	 *            item
+	 * @param slot
+	 *            slot
 	 */
 	public static void setEquipment(LivingEntity mob, ItemStack item, int slot) {
-		if (!isApplicable(mob))
-			return ;
+		if (!isApplicable(mob)) return;
 		if (item instanceof CraftItemStack) {
 		}
-		else if (item instanceof ItemStack) {
-			item = new CraftItemStack(item);
-		}
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack)item).getHandle();
+		else if (item instanceof ItemStack) item = new CraftItemStack(item);
+		EntityLiving ent = ((CraftLivingEntity) mob).getHandle();
+		net.minecraft.server.ItemStack itemStack = ((CraftItemStack) item)
+				.getHandle();
 		ent.setEquipment(slot, itemStack);
 	}
 	
 	/**
 	 * Gets equipment.
-	 *
-	 * @param mob mob
-	 * @param slot slot
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param slot
+	 *            slot
 	 * @return equiped item
 	 */
 	public static ItemStack getEquipment(LivingEntity mob, int slot) {
-		if (!isApplicable(mob))
-			return null;
-		EntityLiving ent = ((CraftLivingEntity)mob).getHandle();
+		if (!isApplicable(mob)) return null;
+		EntityLiving ent = ((CraftLivingEntity) mob).getHandle();
 		return new CraftItemStack(ent.getEquipment(slot));
 	}
 	
 	/**
 	 * Sets weapon.
-	 *
-	 * @param mob mob
-	 * @param item item
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param item
+	 *            item
 	 */
 	public static void setWeapon(LivingEntity mob, ItemStack item) {
 		setEquipment(mob, item, 0);
@@ -58,8 +62,9 @@ public class EntityEquipment {
 	
 	/**
 	 * Gets weapon.
-	 *
-	 * @param mob mob
+	 * 
+	 * @param mob
+	 *            mob
 	 * @return weapon
 	 */
 	public static ItemStack getWeapon(LivingEntity mob) {
@@ -68,9 +73,11 @@ public class EntityEquipment {
 	
 	/**
 	 * Sets helmet.
-	 *
-	 * @param mob mob
-	 * @param item item
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param item
+	 *            item
 	 */
 	public static void setHelmet(LivingEntity mob, ItemStack item) {
 		setEquipment(mob, item, 1);
@@ -78,8 +85,9 @@ public class EntityEquipment {
 	
 	/**
 	 * Gets helmet.
-	 *
-	 * @param mob mob
+	 * 
+	 * @param mob
+	 *            mob
 	 * @return helmet
 	 */
 	public static ItemStack getHelmet(LivingEntity mob) {
@@ -88,9 +96,11 @@ public class EntityEquipment {
 	
 	/**
 	 * Sets chestplate.
-	 *
-	 * @param mob mob
-	 * @param item item
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param item
+	 *            item
 	 */
 	public static void setChestplate(LivingEntity mob, ItemStack item) {
 		setEquipment(mob, item, 2);
@@ -98,8 +108,9 @@ public class EntityEquipment {
 	
 	/**
 	 * Gets chestplate.
-	 *
-	 * @param mob mob
+	 * 
+	 * @param mob
+	 *            mob
 	 * @return chestplate
 	 */
 	public static ItemStack getChestplate(LivingEntity mob) {
@@ -108,9 +119,11 @@ public class EntityEquipment {
 	
 	/**
 	 * Sets pants.
-	 *
-	 * @param mob mob
-	 * @param item item
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param item
+	 *            item
 	 */
 	public static void setPants(LivingEntity mob, ItemStack item) {
 		setEquipment(mob, item, 3);
@@ -118,8 +131,9 @@ public class EntityEquipment {
 	
 	/**
 	 * Gets pants.
-	 *
-	 * @param mob mob
+	 * 
+	 * @param mob
+	 *            mob
 	 * @return pants
 	 */
 	public static ItemStack getPants(LivingEntity mob) {
@@ -128,9 +142,11 @@ public class EntityEquipment {
 	
 	/**
 	 * Sets boots.
-	 *
-	 * @param mob mob
-	 * @param item item
+	 * 
+	 * @param mob
+	 *            mob
+	 * @param item
+	 *            item
 	 */
 	public static void setBoots(LivingEntity mob, ItemStack item) {
 		setEquipment(mob, item, 4);
@@ -138,8 +154,9 @@ public class EntityEquipment {
 	
 	/**
 	 * Gets boots.
-	 *
-	 * @param mob mob
+	 * 
+	 * @param mob
+	 *            mob
 	 * @return boots
 	 */
 	public static ItemStack getBoots(LivingEntity mob) {
@@ -148,8 +165,9 @@ public class EntityEquipment {
 	
 	/**
 	 * Checks if is applicable.
-	 *
-	 * @param entity entity
+	 * 
+	 * @param entity
+	 *            entity
 	 * @return true, if is applicable
 	 */
 	public static boolean isApplicable(LivingEntity entity) {

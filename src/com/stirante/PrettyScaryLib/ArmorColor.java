@@ -54,17 +54,17 @@ public enum ArmorColor {
 	WHITE(15790320);
 	
 	private int	color;
-    
-    private ArmorColor(int color){
-    	this.color = color;
-    }
-    
-    /**
-     * Gets the color.
-     *
-     * @return color
-     */
-    public int getColor(){
-    	return color;
-    }
+	
+	private ArmorColor(int color) {
+		this.color = color;
+	}
+	
+	/**
+	 * Gets the color.
+	 * 
+	 * @return color
+	 */
+	public int getColor() {
+		return color;
+	}
 }

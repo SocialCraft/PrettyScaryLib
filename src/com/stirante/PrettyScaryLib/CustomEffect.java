@@ -11,73 +11,79 @@ public class CustomEffect {
 	private PotionEffectType	type;
 	
 	/** Amplifier. */
-	private int	amplifier;
+	private int					amplifier;
 	
 	/** Duration. */
-	private int	duration;
-
+	private int					duration;
+	
 	/**
 	 * Instantiates a new custom effect.
-	 *
-	 * @param type type of effect
-	 * @param amplifier amplifier
-	 * @param duration duration in ticks
+	 * 
+	 * @param type
+	 *            type of effect
+	 * @param amplifier
+	 *            amplifier
+	 * @param duration
+	 *            duration in ticks
 	 */
-	public CustomEffect(PotionEffectType type, int amplifier, int duration){
-		this.setType(type);
-		this.setAmplifier(amplifier);
-		this.setDuration(duration);
+	public CustomEffect(PotionEffectType type, int amplifier, int duration) {
+		setType(type);
+		setAmplifier(amplifier);
+		setDuration(duration);
 	}
-
+	
 	/**
 	 * Gets the type of effect.
-	 *
+	 * 
 	 * @return type of effect
 	 */
 	public PotionEffectType getType() {
 		return type;
 	}
-
+	
 	/**
 	 * Sets the type of effect.
-	 *
-	 * @param type new type of effect
+	 * 
+	 * @param type
+	 *            new type of effect
 	 */
 	public void setType(PotionEffectType type) {
 		this.type = type;
 	}
-
+	
 	/**
 	 * Gets amplifier.
-	 *
+	 * 
 	 * @return amplifier
 	 */
 	public int getAmplifier() {
 		return amplifier;
 	}
-
+	
 	/**
 	 * Sets the amplifier.
-	 *
-	 * @param amplifier new amplifier
+	 * 
+	 * @param amplifier
+	 *            new amplifier
 	 */
 	public void setAmplifier(int amplifier) {
 		this.amplifier = amplifier;
 	}
-
+	
 	/**
 	 * Gets the duration.
-	 *
+	 * 
 	 * @return duration
 	 */
 	public int getDuration() {
 		return duration;
 	}
-
+	
 	/**
 	 * Sets the duration.
-	 *
-	 * @param duration new duration
+	 * 
+	 * @param duration
+	 *            new duration
 	 */
 	public void setDuration(int duration) {
 		this.duration = duration;

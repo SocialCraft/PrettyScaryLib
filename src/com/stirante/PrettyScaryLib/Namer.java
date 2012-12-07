@@ -21,9 +21,11 @@ public class Namer {
 	
 	/**
 	 * Sets name.
-	 *
-	 * @param item item
-	 * @param name name
+	 * 
+	 * @param item
+	 *            item
+	 * @param name
+	 *            name
 	 * @return item stack
 	 */
 	public static ItemStack setName(ItemStack item, String name) {
@@ -41,8 +43,9 @@ public class Namer {
 	
 	/**
 	 * Gets name.
-	 *
-	 * @param item item
+	 * 
+	 * @param item
+	 *            item
 	 * @return name
 	 */
 	public static String getName(ItemStack item) {
@@ -59,9 +62,11 @@ public class Namer {
 	
 	/**
 	 * Sets lore.
-	 *
-	 * @param item item
-	 * @param lore lore
+	 * 
+	 * @param item
+	 *            item
+	 * @param lore
+	 *            lore
 	 * @return item stack
 	 */
 	public ItemStack setLore(ItemStack item, String... lore) {
@@ -79,21 +84,22 @@ public class Namer {
 			tag.setCompound("display", new NBTTagCompound());
 			itemStack.tag = tag;
 		}
-        tag = itemStack.tag.getCompound("display");
-        NBTTagList list = new NBTTagList();
-        for (String l : lore) {
-            list.add(new NBTTagString(ChatColor.RESET + l));
-        }
-        tag.set("Lore", list);
-        itemStack.tag.setCompound("display", tag);
-        return craftStack;
-    }
+		tag = itemStack.tag.getCompound("display");
+		NBTTagList list = new NBTTagList();
+		for (String l : lore)
+			list.add(new NBTTagString(ChatColor.RESET + l));
+		tag.set("Lore", list);
+		itemStack.tag.setCompound("display", tag);
+		return craftStack;
+	}
 	
 	/**
 	 * Adds lore.
-	 *
-	 * @param item item
-	 * @param lore lore
+	 * 
+	 * @param item
+	 *            item
+	 * @param lore
+	 *            lore
 	 * @return item stack
 	 */
 	public static ItemStack addLore(ItemStack item, String lore) {
@@ -123,8 +129,9 @@ public class Namer {
 	
 	/**
 	 * Gets lore.
-	 *
-	 * @param item item
+	 * 
+	 * @param item
+	 *            item
 	 * @return lore
 	 */
 	public static String[] getLore(ItemStack item) {

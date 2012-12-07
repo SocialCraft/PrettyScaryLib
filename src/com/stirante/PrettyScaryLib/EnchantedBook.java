@@ -8,12 +8,12 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 public class EnchantedBook {
-
-
+	
 	/**
 	 * Checks if item is applicable.
-	 *
-	 * @param item the item to check
+	 * 
+	 * @param item
+	 *            the item to check
 	 * @return true, if is applicable
 	 */
 	public static boolean isApplicable(ItemStack item) {
@@ -27,15 +27,18 @@ public class EnchantedBook {
 	
 	/**
 	 * Adds enchantment.
-	 *
-	 * @param item item
-	 * @param ench enchantment
-	 * @param lvl level
+	 * 
+	 * @param item
+	 *            item
+	 * @param ench
+	 *            enchantment
+	 * @param lvl
+	 *            level
 	 * @return item stack
 	 */
-	public static ItemStack addExplosion(ItemStack item, Enchantment ench, short lvl) {
-		if (!isApplicable(item))
-			return null;
+	public static ItemStack addExplosion(ItemStack item, Enchantment ench,
+			short lvl) {
+		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
 		net.minecraft.server.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
@@ -46,8 +49,7 @@ public class EnchantedBook {
 			craftStack = new CraftItemStack(item);
 			itemStack = craftStack.getHandle();
 		}
-		if (itemStack == null)
-			return null;
+		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();
@@ -66,13 +68,13 @@ public class EnchantedBook {
 	
 	/**
 	 * Gets enchantments.
-	 *
-	 * @param item item
+	 * 
+	 * @param item
+	 *            item
 	 * @return enchantments
 	 */
 	public static StoredEnchantment[] getEnchantments(ItemStack item) {
-		if (!isApplicable(item))
-			return null;
+		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
 		net.minecraft.server.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
@@ -83,8 +85,7 @@ public class EnchantedBook {
 			craftStack = new CraftItemStack(item);
 			itemStack = craftStack.getHandle();
 		}
-		if (itemStack == null)
-			return null;
+		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();
@@ -100,14 +101,15 @@ public class EnchantedBook {
 	
 	/**
 	 * Adds enchantment.
-	 *
-	 * @param item item
-	 * @param ench enchantment
+	 * 
+	 * @param item
+	 *            item
+	 * @param ench
+	 *            enchantment
 	 * @return item stack
 	 */
 	public static ItemStack addExplosion(ItemStack item, StoredEnchantment ench) {
-		if (!isApplicable(item))
-			return null;
+		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
 		net.minecraft.server.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
@@ -118,8 +120,7 @@ public class EnchantedBook {
 			craftStack = new CraftItemStack(item);
 			itemStack = craftStack.getHandle();
 		}
-		if (itemStack == null)
-			return null;
+		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();

@@ -6,18 +6,24 @@ import org.bukkit.plugin.java.JavaPlugin;
  * The Class PrettyScaryLib.
  */
 public class PrettyScaryLib extends JavaPlugin {
-
-	/* (non-Javadoc)
+	
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.bukkit.plugin.java.JavaPlugin#onEnable()
 	 */
-	public void onEnable(){
+	@Override
+	public void onEnable() {
 		
 	}
 	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.bukkit.plugin.java.JavaPlugin#onDisable()
 	 */
-	public void onDisable(){
+	@Override
+	public void onDisable() {
 		
 	}
 }
