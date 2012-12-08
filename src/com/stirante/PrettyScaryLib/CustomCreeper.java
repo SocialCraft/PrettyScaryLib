@@ -2,9 +2,9 @@ package com.stirante.PrettyScaryLib;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.EntityCreeper;
+import net.minecraft.server.v1_4_5.EntityCreeper;
 
-import org.bukkit.craftbukkit.entity.CraftCreeper;
+import org.bukkit.craftbukkit.v1_4_5.entity.CraftCreeper;
 import org.bukkit.entity.Creeper;
 
 /**

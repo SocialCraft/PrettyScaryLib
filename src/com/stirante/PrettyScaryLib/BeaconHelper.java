@@ -2,11 +2,11 @@ package com.stirante.PrettyScaryLib;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.TileEntityBeacon;
+import net.minecraft.server.v1_4_5.TileEntityBeacon;
 
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.CraftWorld;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
 

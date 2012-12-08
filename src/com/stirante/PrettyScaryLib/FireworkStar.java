@@ -1,8 +1,8 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.v1_4_5.NBTTagCompound;
 
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 public class FireworkStar {
@@ -20,7 +20,7 @@ public class FireworkStar {
 			FireworkExplosion explosion) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();
@@ -50,7 +50,7 @@ public class FireworkStar {
 	public static FireworkExplosion getExplosion(ItemStack item) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();

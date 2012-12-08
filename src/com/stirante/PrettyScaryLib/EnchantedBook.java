@@ -1,9 +1,9 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
+import net.minecraft.server.v1_4_5.NBTTagCompound;
+import net.minecraft.server.v1_4_5.NBTTagList;
 
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
@@ -40,7 +40,7 @@ public class EnchantedBook {
 			short lvl) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();
@@ -76,7 +76,7 @@ public class EnchantedBook {
 	public static StoredEnchantment[] getEnchantments(ItemStack item) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();
@@ -111,7 +111,7 @@ public class EnchantedBook {
 	public static ItemStack addExplosion(ItemStack item, StoredEnchantment ench) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();

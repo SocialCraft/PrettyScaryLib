@@ -2,7 +2,7 @@ package com.stirante.PrettyScaryLib;
 
 import java.util.ArrayList;
 
-import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.v1_4_5.NBTTagCompound;
 
 public class FireworkExplosion {
 	private boolean				trail;

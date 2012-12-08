@@ -2,9 +2,9 @@ package com.stirante.PrettyScaryLib;
 
 import java.awt.Color;
 
-import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.v1_4_5.NBTTagCompound;
 
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -25,7 +25,7 @@ public class Armor {
 	public static ItemStack setColor(ItemStack item, int color) {
 		if (!isApplicable(item) || !isValidColor(color)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();
@@ -147,7 +147,7 @@ public class Armor {
 	public static int getColor(ItemStack item) {
 		if (!isApplicable(item)) return -1;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();

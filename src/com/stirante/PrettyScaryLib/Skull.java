@@ -2,12 +2,12 @@ package com.stirante.PrettyScaryLib;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.TileEntitySkull;
+import net.minecraft.server.v1_4_5.NBTTagCompound;
+import net.minecraft.server.v1_4_5.TileEntitySkull;
 
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.CraftWorld;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -27,7 +27,7 @@ public class Skull {
 	public static ItemStack setSkin(ItemStack item, String nick) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();
@@ -137,7 +137,7 @@ public class Skull {
 	public static String getSkin(ItemStack item) {
 		if (!isApplicable(item)) return null;
 		CraftItemStack craftStack = null;
-		net.minecraft.server.ItemStack itemStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			itemStack = craftStack.getHandle();

@@ -1,11 +1,11 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTagString;
+import net.minecraft.server.v1_4_5.NBTTagCompound;
+import net.minecraft.server.v1_4_5.NBTTagList;
+import net.minecraft.server.v1_4_5.NBTTagString;
 
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -14,10 +14,10 @@ import org.bukkit.inventory.ItemStack;
 public class Namer {
 	
 	/** craft stack. */
-	private static CraftItemStack					craftStack;
+	private static CraftItemStack							craftStack;
 	
 	/** item stack. */
-	private static net.minecraft.server.ItemStack	itemStack;
+	private static net.minecraft.server.v1_4_5.ItemStack	itemStack;
 	
 	/**
 	 * Sets name.

@@ -1,9 +1,9 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.EntityLiving;
+import net.minecraft.server.v1_4_5.EntityLiving;
 
-import org.bukkit.craftbukkit.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_5.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
 
@@ -28,7 +28,7 @@ public class EntityEquipment {
 		}
 		else if (item instanceof ItemStack) item = new CraftItemStack(item);
 		EntityLiving ent = ((CraftLivingEntity) mob).getHandle();
-		net.minecraft.server.ItemStack itemStack = ((CraftItemStack) item)
+		net.minecraft.server.v1_4_5.ItemStack itemStack = ((CraftItemStack) item)
 				.getHandle();
 		ent.setEquipment(slot, itemStack);
 	}
