@@ -56,7 +56,7 @@ public class Skull {
 		TileEntitySkull skull = (TileEntitySkull) ((CraftWorld) block
 				.getWorld()).getHandle().getTileEntity(block.getX(),
 				block.getY(), block.getZ());
-		skull.a(skull.a(), nick);
+		skull.setSkullType(skull.getSkullType(), nick);
 	}
 	
 	/**
@@ -89,7 +89,7 @@ public class Skull {
 		TileEntitySkull skull = (TileEntitySkull) ((CraftWorld) block
 				.getWorld()).getHandle().getTileEntity(block.getX(),
 				block.getY(), block.getZ());
-		skull.p = rotation;
+		skull.setRotation(rotation);
 		
 	}
 	
