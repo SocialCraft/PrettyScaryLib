@@ -87,7 +87,7 @@ public class Namer {
 		tag = itemStack.tag.getCompound("display");
 		NBTTagList list = new NBTTagList();
 		for (String l : lore)
-			list.add(new NBTTagString(ChatColor.RESET + l));
+			list.add(new NBTTagString("", ChatColor.RESET + l));
 		tag.set("Lore", list);
 		itemStack.tag.setCompound("display", tag);
 		return craftStack;
@@ -121,7 +121,7 @@ public class Namer {
 		
 		tag = itemStack.tag.getCompound("display");
 		NBTTagList list = tag.getList("Lore");
-		list.add(new NBTTagString(ChatColor.RESET + lore));
+		list.add(new NBTTagString("", ChatColor.RESET + lore));
 		tag.set("Lore", list);
 		itemStack.tag.setCompound("display", tag);
 		return craftStack;
