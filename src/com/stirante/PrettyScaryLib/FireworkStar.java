@@ -5,6 +5,9 @@ import net.minecraft.server.v1_4_5.NBTTagCompound;
 import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Class, that allows changing explosion of firework star.
+ */
 public class FireworkStar {
 	
 	/**

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import net.minecraft.server.v1_4_5.NBTTagCompound;
 
+/**
+ * Class, that stores informations about firework's and firework's star
+ * explosions.
+ */
 public class FireworkExplosion {
 	private boolean				trail;
 	private FireworkType		type;
@@ -11,6 +15,20 @@ public class FireworkExplosion {
 	private boolean				flicker;
 	private ArrayList<Integer>	fadeColors;
 	
+	/**
+	 * Instantiates a new firework explosion.
+	 * 
+	 * @param trail
+	 *            trail
+	 * @param type
+	 *            type
+	 * @param colors
+	 *            colors
+	 * @param flicker
+	 *            flicker
+	 * @param fadeColors
+	 *            fade colors
+	 */
 	public FireworkExplosion(boolean trail, FireworkType type,
 			ArrayList<Integer> colors, boolean flicker,
 			ArrayList<Integer> fadeColors) {
@@ -21,6 +39,12 @@ public class FireworkExplosion {
 		setFlicker(flicker);
 	}
 	
+	/**
+	 * Instantiates a new firework explosion.
+	 * 
+	 * @param tag
+	 *            Compound
+	 */
 	public FireworkExplosion(NBTTagCompound tag) {
 		if (tag.getByte("Trail") == 1)
 			setTrail(true);
@@ -47,22 +71,49 @@ public class FireworkExplosion {
 			colors.add(element);
 	}
 	
+	/**
+	 * Gets trail.
+	 * 
+	 * @return trail
+	 */
 	public boolean isTrail() {
 		return trail;
 	}
 	
+	/**
+	 * Sets the trail.
+	 * 
+	 * @param trail
+	 *            trail
+	 */
 	public void setTrail(boolean trail) {
 		this.trail = trail;
 	}
 	
+	/**
+	 * Gets the type.
+	 * 
+	 * @return the type
+	 */
 	public FireworkType getType() {
 		return type;
 	}
 	
+	/**
+	 * Sets the type.
+	 * 
+	 * @param type
+	 *            the new type
+	 */
 	public void setType(FireworkType type) {
 		this.type = type;
 	}
 	
+	/**
+	 * Gets the colors.
+	 * 
+	 * @return the colors
+	 */
 	public int[] getColors() {
 		int[] array = new int[colors.size()];
 		for (int i = 0; i < colors.size(); i++)
@@ -70,22 +121,50 @@ public class FireworkExplosion {
 		return array;
 	}
 	
+	/**
+	 * Sets the colors.
+	 * 
+	 * @param colors
+	 *            the new colors
+	 */
 	public void setColors(ArrayList<Integer> colors) {
 		this.colors = colors;
 	}
 	
+	/**
+	 * Adds the color.
+	 * 
+	 * @param color
+	 *            the color
+	 */
 	public void addColor(int color) {
 		colors.add(color);
 	}
 	
+	/**
+	 * Checks if is flickering.
+	 * 
+	 * @return true, if is flickering
+	 */
 	public boolean isFlicker() {
 		return flicker;
 	}
 	
+	/**
+	 * Sets the flickering.
+	 * 
+	 * @param flicker
+	 *            flickering
+	 */
 	public void setFlicker(boolean flicker) {
 		this.flicker = flicker;
 	}
 	
+	/**
+	 * Gets the fade colors.
+	 * 
+	 * @return the fade colors
+	 */
 	public int[] getFadeColors() {
 		int[] array = new int[fadeColors.size()];
 		for (int i = 0; i < fadeColors.size(); i++)
@@ -93,10 +172,21 @@ public class FireworkExplosion {
 		return array;
 	}
 	
+	/**
+	 * Sets the fade colors.
+	 * 
+	 * @param fadeColors
+	 *            the new fade colors
+	 */
 	public void setFadeColors(ArrayList<Integer> fadeColors) {
 		this.fadeColors = fadeColors;
 	}
 	
+	/**
+	 * Gets the explosion tag.
+	 * 
+	 * @return the tag
+	 */
 	public NBTTagCompound getTag() {
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setByte("Trail", getTrail());

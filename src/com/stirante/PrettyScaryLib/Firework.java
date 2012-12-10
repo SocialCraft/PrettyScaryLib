@@ -6,6 +6,10 @@ import net.minecraft.server.v1_4_5.NBTTagList;
 import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Class, that allows setting data for Fireworks. Note that this class will work
+ * in version 1.4.6 or newer.
+ */
 public class Firework {
 	
 	/**
@@ -25,7 +29,7 @@ public class Firework {
 	}
 	
 	/**
-	 * Sets explosions.
+	 * Sets explosion data.
 	 * 
 	 * @param item
 	 *            item
@@ -62,7 +66,7 @@ public class Firework {
 	}
 	
 	/**
-	 * Adds explosion.
+	 * Adds explosion data.
 	 * 
 	 * @param item
 	 *            item
@@ -101,7 +105,7 @@ public class Firework {
 	}
 	
 	/**
-	 * Gets explosions.
+	 * Gets explosions data.
 	 * 
 	 * @param item
 	 *            item
@@ -171,7 +175,7 @@ public class Firework {
 	}
 	
 	/**
-	 * Gets the height.
+	 * Gets height of the flight.
 	 * 
 	 * @param item
 	 *            item

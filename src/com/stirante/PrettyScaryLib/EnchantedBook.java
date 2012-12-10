@@ -7,6 +7,9 @@ import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * Class, that allows editing enchanted books.
+ */
 public class EnchantedBook {
 	
 	/**
