@@ -69,7 +69,7 @@ public class Namer {
 	 *            lore
 	 * @return item stack
 	 */
-	public ItemStack setLore(ItemStack item, String... lore) {
+	public static ItemStack setLore(ItemStack item, String... lore) {
 		if (item instanceof CraftItemStack) {
 			craftStack = (CraftItemStack) item;
 			Namer.itemStack = craftStack.getHandle();
