@@ -14,16 +14,17 @@ public class Armor {
 	
 	/**
 	 * Sets the color.
+	 * If item is not colorable it will return an unchanged object of that item.
 	 * 
 	 * @param item
 	 *            item to color
 	 * @param color
 	 *            color
-	 * @return colored item or null if item is not applicable or color is not
+	 * @return colored item
 	 *         valid
 	 */
 	public static ItemStack setColor(ItemStack item, int color) {
-		if (!isApplicable(item) || !isValidColor(color)) return null;
+		if (!isApplicable(item) || !isValidColor(color)) return item;
 		CraftItemStack craftStack = null;
 		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
 		if (item instanceof CraftItemStack) {
@@ -59,11 +60,11 @@ public class Armor {
 	}
 	
 	/**
-	 * Checks if item is applicable.
+	 * Check if item is applicable (colorable).
 	 * 
 	 * @param item
 	 *            the item to check
-	 * @return true, if is applicable
+	 * @return boolean
 	 */
 	public static boolean isApplicable(ItemStack item) {
 		switch (item.getType()) {
@@ -79,6 +80,7 @@ public class Armor {
 	
 	/**
 	 * Sets the color.
+	 * If item is not colorable it will return an unchanged object of that item.
 	 * 
 	 * @param item
 	 *            item to color
@@ -92,6 +94,7 @@ public class Armor {
 	
 	/**
 	 * Sets the color.
+	 * If item is not colorable it will return an unchanged object of that item.
 	 * 
 	 * @param item
 	 *            item to color
@@ -105,6 +108,7 @@ public class Armor {
 	
 	/**
 	 * Sets the color.
+	 * If item is not colorable it will return an unchanged object of that item.
 	 * 
 	 * @param item
 	 *            item to color
@@ -119,6 +123,7 @@ public class Armor {
 	
 	/**
 	 * Sets the color.
+	 * If item is not colorable it will return an unchanged object of that item.
 	 * 
 	 * @param item
 	 *            item to color
@@ -142,7 +147,7 @@ public class Armor {
 	 * 
 	 * @param item
 	 *            colored item
-	 * @return color
+	 * @return color or -1 if no color was found for given item or item is not applicable
 	 */
 	public static int getColor(ItemStack item) {
 		if (!isApplicable(item)) return -1;
