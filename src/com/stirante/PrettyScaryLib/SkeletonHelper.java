@@ -1,6 +1,13 @@
 package com.stirante.PrettyScaryLib;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import net.minecraft.server.v1_4_5.EntityLiving;
 import net.minecraft.server.v1_4_5.EntitySkeleton;
+import net.minecraft.server.v1_4_5.Item;
+import net.minecraft.server.v1_4_5.PathfinderGoal;
+import net.minecraft.server.v1_4_5.PathfinderGoalSelector;
 
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_4_5.entity.CraftSkeleton;
@@ -44,13 +51,50 @@ public class SkeletonHelper {
 	 * @param type
 	 *            type
 	 */
-	public static void setWither(Skeleton skeleton, SkeletonType type) {
-		EntitySkeleton ent = ((CraftSkeleton) skeleton).getHandle();
-		if (isWither(skeleton))
-			EntityEquipment.setWeapon(skeleton, new ItemStack(
-					Material.STONE_SWORD));
+	public static void setType(Skeleton skeleton, SkeletonType type) {
+		if (type == SkeletonType.NORMAL)
+			changeIntoNormal(skeleton, true);
 		else
-			EntityEquipment.setWeapon(skeleton, new ItemStack(Material.BOW));
-		ent.setSkeletonType(type.getType());
+			changeIntoWither(skeleton);
+	}
+	
+	private static void changeIntoNormal(Skeleton skeleton, boolean giveRandomEnchantments){
+		EntitySkeleton ent = ((CraftSkeleton)skeleton).getHandle();
+		try {
+			ent.setSkeletonType(0);
+			Method be = EntitySkeleton.class.getDeclaredMethod("bE");
+			be.setAccessible(true);
+			be.invoke(ent);
+			if (giveRandomEnchantments){
+				Method bf = EntityLiving.class.getDeclaredMethod("bF");
+				bf.setAccessible(true);
+				bf.invoke(ent);
+			}
+			Field selector = EntitySkeleton.class.getDeclaredField("goalSelector");
+			selector.setAccessible(true);
+			Field d = EntitySkeleton.class.getDeclaredField("d");
+			d.setAccessible(true);
+			PathfinderGoalSelector goals = (PathfinderGoalSelector) selector.get(ent);
+			goals.a(4, (PathfinderGoal) d.get(ent));
+		}
+		catch (Throwable e) {
+			e.printStackTrace();
+		}
+	}
+	private static void changeIntoWither(Skeleton skeleton){
+		EntitySkeleton ent = ((CraftSkeleton)skeleton).getHandle();
+		try {
+			ent.setSkeletonType(1);
+			Field selector = EntitySkeleton.class.getDeclaredField("goalSelector");
+			selector.setAccessible(true);
+			Field e = EntitySkeleton.class.getDeclaredField("e");
+			e.setAccessible(true);
+			PathfinderGoalSelector goals = (PathfinderGoalSelector) selector.get(ent);
+			goals.a(4, (PathfinderGoal) e.get(ent));
+			ent.setEquipment(0, new net.minecraft.server.v1_4_5.ItemStack(Item.STONE_SWORD));
+		}
+		catch (Throwable e) {
+			e.printStackTrace();
+		}
 	}
 }
