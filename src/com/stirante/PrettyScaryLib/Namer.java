@@ -157,4 +157,65 @@ public class Namer {
 			lores[i] = ((NBTTagString) list.get(i)).data;
 		return lores;
 	}
+	
+	/**
+	 * Gets the cost.
+	 * 
+	 * @param item
+	 *            item
+	 * @param cost
+	 *            cost
+	 * @return item
+	 */
+	public static ItemStack setRepairCost(ItemStack item, int cost) {
+		CraftItemStack craftStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
+		if (item instanceof CraftItemStack) {
+			craftStack = (CraftItemStack) item;
+			itemStack = craftStack.getHandle();
+		}
+		else if (item instanceof ItemStack) {
+			craftStack = new CraftItemStack(item);
+			itemStack = craftStack.getHandle();
+		}
+		NBTTagCompound tag = itemStack.tag;
+		if (tag == null) {
+			tag = new NBTTagCompound();
+			itemStack.tag = tag;
+		}
+		
+		tag.setInt("RepairCost", cost);
+		itemStack.tag.setCompound("RepairCost", tag);
+		return craftStack;
+	}
+	
+	/**
+	 * Gets the cost.
+	 * 
+	 * @param item
+	 *            item
+	 * @return cost
+	 */
+	public static int getRepairCost(ItemStack item) {
+		CraftItemStack craftStack = null;
+		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
+		if (item instanceof CraftItemStack) {
+			craftStack = (CraftItemStack) item;
+			itemStack = craftStack.getHandle();
+		}
+		else if (item instanceof ItemStack) {
+			craftStack = new CraftItemStack(item);
+			itemStack = craftStack.getHandle();
+		}
+		NBTTagCompound tag = itemStack.tag;
+		if (tag == null) {
+			tag = new NBTTagCompound();
+			tag.setCompound("display", new NBTTagCompound());
+			itemStack.tag = tag;
+			return -1;
+		}
+		
+		tag = itemStack.tag.getCompound("display");
+		return tag.getInt("color");
+	}
 }
