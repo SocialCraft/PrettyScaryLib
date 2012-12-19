@@ -19,16 +19,7 @@ public class EnchantGlow {
 	 * @return the item stack
 	 */
 	public static ItemStack addGlow(ItemStack item) {
-		net.minecraft.server.v1_4_5.ItemStack nmsStack = null;
-		CraftItemStack craftStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			nmsStack = craftStack.getHandle();
-		}
-		else {
-			craftStack = new CraftItemStack(item);
-			nmsStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack nmsStack = CraftItemStack.asNMSCopy(item);
 		NBTTagCompound tag = null;
 		if (!nmsStack.hasTag()) {
 			tag = new NBTTagCompound();
@@ -38,7 +29,7 @@ public class EnchantGlow {
 		NBTTagList ench = new NBTTagList();
 		tag.set("ench", ench);
 		nmsStack.setTag(tag);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(nmsStack);
 	}
 	
 	/**
@@ -49,21 +40,12 @@ public class EnchantGlow {
 	 * @return the item stack
 	 */
 	public static ItemStack removeGlow(ItemStack item) {
-		net.minecraft.server.v1_4_5.ItemStack nmsStack = null;
-		CraftItemStack craftStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			nmsStack = craftStack.getHandle();
-		}
-		else {
-			craftStack = new CraftItemStack(item);
-			nmsStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack nmsStack = CraftItemStack.asNMSCopy(item);
 		NBTTagCompound tag = null;
 		if (!nmsStack.hasTag()) return item;
 		tag = nmsStack.getTag();
-		tag.remove("ench");
+		tag.set("ench", null);
 		nmsStack.setTag(tag);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(nmsStack);
 	}
 }

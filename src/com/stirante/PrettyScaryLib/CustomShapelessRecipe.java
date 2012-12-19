@@ -47,14 +47,13 @@ public class CustomShapelessRecipe extends ShapelessRecipes implements IRecipe {
 		org.bukkit.inventory.ItemStack[] inventory = new org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack[arg0
 				.getSize()];
 		for (int i = 0; i < arg0.getContents().length; i++)
-			inventory[i] = new org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack(
-					arg0.getContents()[i]);
+			inventory[i] = CraftItemStack.asBukkitCopy(arg0.getContents()[i]);
 		if (result.getTag() != null)
 			item.setTag((NBTTagCompound) result.getTag().clone());
 		PrepareRecipeEvent event = new PrepareRecipeEvent(inventory,
-				new CraftItemStack(item), name);
+				CraftItemStack.asBukkitCopy(item), name);
 		Bukkit.getPluginManager().callEvent(event);
-		item = ((CraftItemStack) event.getResult()).getHandle();
+		item = CraftItemStack.asNMSCopy(event.getResult());
 		return item;
 	}
 	
@@ -79,10 +78,7 @@ public class CustomShapelessRecipe extends ShapelessRecipes implements IRecipe {
 	public static CustomShapelessRecipe addRecipe(String name,
 			org.bukkit.inventory.ItemStack item1, Object... args) {
 		ItemStack item = null;
-		if (item1 instanceof CraftItemStack)
-			item = ((CraftItemStack) item1).getHandle();
-		else
-			item = new CraftItemStack(item1).getHandle();
+		item = CraftItemStack.asNMSCopy(item1);
 		ArrayList<ItemStack> var3 = new ArrayList<ItemStack>();
 		Object[] var4 = args;
 		int var5 = args.length;
@@ -91,16 +87,11 @@ public class CustomShapelessRecipe extends ShapelessRecipes implements IRecipe {
 			Object var7 = var4[var6];
 			
 			if (var7 instanceof org.bukkit.inventory.ItemStack) {
-				if (var7 instanceof CraftItemStack)
-					var3.add(((CraftItemStack) var7).getHandle()
+					var3.add(CraftItemStack.asNMSCopy((org.bukkit.inventory.ItemStack) var7)
 							.cloneItemStack());
-				else
-					var3.add(new CraftItemStack(
-							(org.bukkit.inventory.ItemStack) var7).getHandle());
-				// var3.add(((CraftItemStack)var7).getHandle().cloneItemStack());
 			}
 			else if (var7 instanceof Material)
-				var3.add(new CraftItemStack((Material) var7).getHandle()
+				var3.add(CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack((Material)var7))
 						.cloneItemStack());
 			else
 				throw new RuntimeException("Invalid shapeless recipy!");

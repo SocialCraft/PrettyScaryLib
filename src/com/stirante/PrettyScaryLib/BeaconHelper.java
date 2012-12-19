@@ -128,8 +128,8 @@ public class BeaconHelper {
 				.getWorld()).getHandle().getTileEntity(block.getX(),
 				block.getY(), block.getZ());
 		if (!(item instanceof CraftItemStack))
-			item = new CraftItemStack(item.getType());
-		beacon.setItem(0, ((CraftItemStack) item).getHandle());
+			item = CraftItemStack.asCraftCopy(new ItemStack(item.getType()));
+		beacon.setItem(0, CraftItemStack.asNMSCopy(item));
 	}
 	
 	/**
@@ -144,7 +144,7 @@ public class BeaconHelper {
 		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
 				.getWorld()).getHandle().getTileEntity(block.getX(),
 				block.getY(), block.getZ());
-		return new CraftItemStack(beacon.getItem(0));
+		return CraftItemStack.asBukkitCopy(beacon.getItem(0));
 	}
 	
 	/**

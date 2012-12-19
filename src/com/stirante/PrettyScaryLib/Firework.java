@@ -39,16 +39,7 @@ public class Firework {
 	 */
 	public ItemStack setExplosions(ItemStack item, FireworkExplosion... exps) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -62,7 +53,7 @@ public class Firework {
 			list.add(l.getTag());
 		tag.set("Explosions", list);
 		itemStack.tag.setCompound("Fireworks", tag);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(itemStack);
 	}
 	
 	/**
@@ -77,16 +68,7 @@ public class Firework {
 	public static ItemStack addExplosion(ItemStack item,
 			FireworkExplosion explosion) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -101,7 +83,7 @@ public class Firework {
 		list.add(explosion.getTag());
 		tag.set("Explosions", list);
 		itemStack.tag.setCompound("Fireworks", tag);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(itemStack);
 	}
 	
 	/**
@@ -113,16 +95,7 @@ public class Firework {
 	 */
 	public static FireworkExplosion[] getExplosions(ItemStack item) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -150,16 +123,7 @@ public class Firework {
 	 */
 	public static ItemStack setFlight(ItemStack item, int flight) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -171,7 +135,7 @@ public class Firework {
 		tag = itemStack.tag.getCompound("Fireworks");
 		tag.setByte("Flight", (byte) flight);
 		itemStack.tag.setCompound("Fireworks", tag);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(itemStack);
 	}
 	
 	/**
@@ -183,16 +147,7 @@ public class Firework {
 	 */
 	public static int getFlight(ItemStack item) {
 		if (!isApplicable(item)) return -1;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();

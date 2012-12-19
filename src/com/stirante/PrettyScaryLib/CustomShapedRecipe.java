@@ -50,14 +50,13 @@ public class CustomShapedRecipe extends ShapedRecipes implements IRecipe {
 		org.bukkit.inventory.ItemStack[] inventory = new org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack[inv
 				.getSize()];
 		for (int i = 0; i < inv.getContents().length; i++)
-			inventory[i] = new org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack(
-					inv.getContents()[i]);
+			inventory[i] = CraftItemStack.asBukkitCopy(inv.getContents()[i]);
 		if (result.getTag() != null)
 			item.setTag((NBTTagCompound) result.getTag().clone());
 		PrepareRecipeEvent event = new PrepareRecipeEvent(inventory,
-				new CraftItemStack(item), name);
+				CraftItemStack.asBukkitCopy(item), name);
 		Bukkit.getPluginManager().callEvent(event);
-		item = ((CraftItemStack) event.getResult()).getHandle();
+		item = CraftItemStack.asNMSCopy(event.getResult());
 		return item;
 	}
 	
@@ -82,10 +81,7 @@ public class CustomShapedRecipe extends ShapedRecipes implements IRecipe {
 	public static CustomShapedRecipe addRecipe(String name,
 			org.bukkit.inventory.ItemStack item1, Object... args) {
 		ItemStack item = null;
-		if (item1 instanceof CraftItemStack)
-			item = ((CraftItemStack) item1).getHandle();
-		else
-			item = new CraftItemStack(item1).getHandle();
+			item = CraftItemStack.asNMSCopy(item1);
 		String var3 = "";
 		int var4 = 0;
 		int var5 = 0;
@@ -119,17 +115,10 @@ public class CustomShapedRecipe extends ShapedRecipes implements IRecipe {
 			ItemStack var17 = null;
 			
 			if (args[var4 + 1] instanceof org.bukkit.inventory.ItemStack) {
-				if (args[var4 + 1] instanceof CraftItemStack)
-					var17 = ((CraftItemStack) args[var4 + 1]).getHandle()
-							.cloneItemStack();
-				else
-					var17 = new CraftItemStack(
-							(org.bukkit.inventory.ItemStack) args[var4 + 1])
-							.getHandle();
+					var17 = CraftItemStack.asNMSCopy((org.bukkit.inventory.ItemStack) args[var4 + 1]).cloneItemStack();
 			}
 			else if (args[var4 + 1] instanceof org.bukkit.Material)
-				var17 = new CraftItemStack((Material) args[var4 + 1])
-						.getHandle();
+				var17 = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack((Material)args[var4 + 1]));
 			
 			var14.put(var16, var17);
 		}

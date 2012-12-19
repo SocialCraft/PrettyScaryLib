@@ -22,16 +22,7 @@ public class FireworkStar {
 	public static ItemStack setExplosion(ItemStack item,
 			FireworkExplosion explosion) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -40,7 +31,7 @@ public class FireworkStar {
 		}
 		
 		tag.setCompound("Explosion", explosion.getTag());
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(itemStack);
 	}
 	
 	/**
@@ -52,16 +43,7 @@ public class FireworkStar {
 	 */
 	public static FireworkExplosion getExplosion(ItemStack item) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();

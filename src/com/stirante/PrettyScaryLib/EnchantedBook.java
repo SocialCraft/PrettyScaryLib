@@ -42,16 +42,7 @@ public class EnchantedBook {
 	public static ItemStack addExplosion(ItemStack item, Enchantment ench,
 			short lvl) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -66,7 +57,7 @@ public class EnchantedBook {
 		tag1.setShort("lvl", lvl);
 		list.add(tag1);
 		tag.set("StoredEnchantments", list);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(itemStack);
 	}
 	
 	/**
@@ -78,16 +69,7 @@ public class EnchantedBook {
 	 */
 	public static StoredEnchantment[] getEnchantments(ItemStack item) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -113,16 +95,7 @@ public class EnchantedBook {
 	 */
 	public static ItemStack addExplosion(ItemStack item, StoredEnchantment ench) {
 		if (!isApplicable(item)) return null;
-		CraftItemStack craftStack = null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = null;
-		if (item instanceof CraftItemStack) {
-			craftStack = (CraftItemStack) item;
-			itemStack = craftStack.getHandle();
-		}
-		else if (item instanceof ItemStack) {
-			craftStack = new CraftItemStack(item);
-			itemStack = craftStack.getHandle();
-		}
+		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -134,6 +107,6 @@ public class EnchantedBook {
 		NBTTagList list = tag.getList("StoredEnchantments");
 		list.add(ench.getTag());
 		tag.set("StoredEnchantments", list);
-		return craftStack;
+		return CraftItemStack.asBukkitCopy(itemStack);
 	}
 }
