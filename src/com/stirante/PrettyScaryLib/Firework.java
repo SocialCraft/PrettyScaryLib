@@ -1,9 +1,9 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.v1_4_5.NBTTagCompound;
-import net.minecraft.server.v1_4_5.NBTTagList;
+import net.minecraft.server.v1_4_6.NBTTagCompound;
+import net.minecraft.server.v1_4_6.NBTTagList;
 
-import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_6.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -39,7 +39,7 @@ public class Firework {
 	 */
 	public ItemStack setExplosions(ItemStack item, FireworkExplosion... exps) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -53,7 +53,7 @@ public class Firework {
 			list.add(l.getTag());
 		tag.set("Explosions", list);
 		itemStack.tag.setCompound("Fireworks", tag);
-		return CraftItemStack.asBukkitCopy(itemStack);
+		return CraftItemStack.asCraftMirror(itemStack);
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class Firework {
 	public static ItemStack addExplosion(ItemStack item,
 			FireworkExplosion explosion) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -83,7 +83,7 @@ public class Firework {
 		list.add(explosion.getTag());
 		tag.set("Explosions", list);
 		itemStack.tag.setCompound("Fireworks", tag);
-		return CraftItemStack.asBukkitCopy(itemStack);
+		return CraftItemStack.asCraftMirror(itemStack);
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class Firework {
 	 */
 	public static FireworkExplosion[] getExplosions(ItemStack item) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -123,7 +123,7 @@ public class Firework {
 	 */
 	public static ItemStack setFlight(ItemStack item, int flight) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -135,7 +135,7 @@ public class Firework {
 		tag = itemStack.tag.getCompound("Fireworks");
 		tag.setByte("Flight", (byte) flight);
 		itemStack.tag.setCompound("Fireworks", tag);
-		return CraftItemStack.asBukkitCopy(itemStack);
+		return CraftItemStack.asCraftMirror(itemStack);
 	}
 	
 	/**
@@ -147,7 +147,7 @@ public class Firework {
 	 */
 	public static int getFlight(ItemStack item) {
 		if (!isApplicable(item)) return -1;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();

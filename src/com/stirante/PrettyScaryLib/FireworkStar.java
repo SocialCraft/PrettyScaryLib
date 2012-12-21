@@ -1,8 +1,8 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.v1_4_5.NBTTagCompound;
+import net.minecraft.server.v1_4_6.NBTTagCompound;
 
-import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_6.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -22,7 +22,7 @@ public class FireworkStar {
 	public static ItemStack setExplosion(ItemStack item,
 			FireworkExplosion explosion) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -31,7 +31,7 @@ public class FireworkStar {
 		}
 		
 		tag.setCompound("Explosion", explosion.getTag());
-		return CraftItemStack.asBukkitCopy(itemStack);
+		return CraftItemStack.asCraftMirror(itemStack);
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class FireworkStar {
 	 */
 	public static FireworkExplosion getExplosion(ItemStack item) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
 			tag = new NBTTagCompound();

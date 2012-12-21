@@ -2,7 +2,7 @@ package com.stirante.PrettyScaryLib;
 
 import java.util.ArrayList;
 
-import net.minecraft.server.v1_4_5.NBTTagCompound;
+import net.minecraft.server.v1_4_6.NBTTagCompound;
 
 /**
  * Class, that stores informations about firework's and firework's star

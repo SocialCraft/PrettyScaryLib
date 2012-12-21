@@ -2,10 +2,10 @@ package com.stirante.PrettyScaryLib;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_4_5.TileEntitySkull;
+import net.minecraft.server.v1_4_6.TileEntitySkull;
 
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_4_5.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_6.CraftWorld;
 
 /**
  * Class, that allows setting and getting skin fo skull.

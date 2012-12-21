@@ -1,7 +1,7 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.v1_4_5.NBTBase;
-import net.minecraft.server.v1_4_5.NBTTagCompound;
+import net.minecraft.server.v1_4_6.NBTBase;
+import net.minecraft.server.v1_4_6.NBTTagCompound;
 
 import org.bukkit.enchantments.Enchantment;
 

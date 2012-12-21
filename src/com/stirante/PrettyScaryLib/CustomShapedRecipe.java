@@ -2,16 +2,16 @@ package com.stirante.PrettyScaryLib;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_4_5.CraftingManager;
-import net.minecraft.server.v1_4_5.IRecipe;
-import net.minecraft.server.v1_4_5.InventoryCrafting;
-import net.minecraft.server.v1_4_5.ItemStack;
-import net.minecraft.server.v1_4_5.NBTTagCompound;
-import net.minecraft.server.v1_4_5.ShapedRecipes;
+import net.minecraft.server.v1_4_6.CraftingManager;
+import net.minecraft.server.v1_4_6.IRecipe;
+import net.minecraft.server.v1_4_6.InventoryCrafting;
+import net.minecraft.server.v1_4_6.ItemStack;
+import net.minecraft.server.v1_4_6.NBTTagCompound;
+import net.minecraft.server.v1_4_6.ShapedRecipes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_6.inventory.CraftItemStack;
 
 /**
  * Class, that allows adding custom shaped recipe which returns item with NBT
@@ -47,7 +47,7 @@ public class CustomShapedRecipe extends ShapedRecipes implements IRecipe {
 	@Override
 	public ItemStack a(InventoryCrafting inv) {
 		ItemStack item = result.cloneItemStack();
-		org.bukkit.inventory.ItemStack[] inventory = new org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack[inv
+		org.bukkit.inventory.ItemStack[] inventory = new org.bukkit.craftbukkit.v1_4_6.inventory.CraftItemStack[inv
 				.getSize()];
 		for (int i = 0; i < inv.getContents().length; i++)
 			inventory[i] = CraftItemStack.asBukkitCopy(inv.getContents()[i]);

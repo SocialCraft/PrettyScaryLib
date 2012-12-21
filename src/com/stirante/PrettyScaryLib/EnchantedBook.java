@@ -1,9 +1,9 @@
 package com.stirante.PrettyScaryLib;
 
-import net.minecraft.server.v1_4_5.NBTTagCompound;
-import net.minecraft.server.v1_4_5.NBTTagList;
+import net.minecraft.server.v1_4_6.NBTTagCompound;
+import net.minecraft.server.v1_4_6.NBTTagList;
 
-import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_4_6.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
@@ -42,7 +42,7 @@ public class EnchantedBook {
 	public static ItemStack addExplosion(ItemStack item, Enchantment ench,
 			short lvl) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -57,7 +57,7 @@ public class EnchantedBook {
 		tag1.setShort("lvl", lvl);
 		list.add(tag1);
 		tag.set("StoredEnchantments", list);
-		return CraftItemStack.asBukkitCopy(itemStack);
+		return CraftItemStack.asCraftMirror(itemStack);
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public class EnchantedBook {
 	 */
 	public static StoredEnchantment[] getEnchantments(ItemStack item) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
@@ -95,7 +95,7 @@ public class EnchantedBook {
 	 */
 	public static ItemStack addExplosion(ItemStack item, StoredEnchantment ench) {
 		if (!isApplicable(item)) return null;
-		net.minecraft.server.v1_4_5.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
+		net.minecraft.server.v1_4_6.ItemStack itemStack = CraftItemStack.asNMSCopy(item);
 		if (itemStack == null) return null;
 		NBTTagCompound tag = itemStack.tag;
 		if (tag == null) {
