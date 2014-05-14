@@ -190,7 +190,7 @@ public class BeaconHelper {
 		TileEntityBeacon beacon = (TileEntityBeacon) ((CraftWorld) block
 				.getWorld()).getHandle().getTileEntity(block.getX(),
 				block.getY(), block.getZ());
-		return PotionEffectType.getById(beacon.i());
+		return PotionEffectType.getById(beacon.k());
 	}
 	
 	/**
